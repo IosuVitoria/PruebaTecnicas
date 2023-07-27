@@ -1,0 +1,124 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /* Cambiar el tipo de letra a Arial o una fuente similar */
+    margin: 0;
+    padding: 0;
+    background: url("./time.jpg"); /* Color de fondo para la página */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+  
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    opacity: 0.8;
+}
+  
+header h1 {
+    margin: 0;
+}
+  
+header h4 {
+    margin: 0;
+    font-weight: normal;
+}
+  
+  /* Estilos para la sección */
+ section {
+    margin: 20px;
+}
+  
+  /* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    background-color: #756120da;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+  
+form input[type="date"] {
+    margin-bottom: 10px;
+}
+  
+form button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+form button:hover {
+    background-color: #555;
+}
+  
+  /* Estilos para el resultado */
+label[for="resultado"] {
+    display: block;
+    margin-top: 20px;
+}
+  
+input#resultado {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 0.6;
+}
+  
+/* Estilos para la sección */
+section {
+    margin: 20px auto; /* Centrar horizontalmente */
+    max-width: 600px; /* Limitar el ancho de la sección */
+}
+  
+/* Estilos para el resultado */
+label[for="resultado"] {
+    display: block;
+    margin-top: 20px;
+    text-align: center; /* Centrar el texto del label */
+}
+  
+input#resultado {
+    display: block;
+    width: 100%;
+    max-width: 300px; /* Limitar el ancho del resultado */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#resolucion{
+    background: white;
+    padding: 11px;
+    text-align: center;
+    border: 1px;
+    border-radius: 20px;
+    opacity: 0.6;
+}
+
+
+#etiquetaResultado{
+    margin-bottom: 15px;
+    font-weight: bolder;
+    color:white;
+}
