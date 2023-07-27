@@ -2,8 +2,9 @@
 function calcularDiferenciaFechas() {
   // Obtener las fechas ingresadas por el usuario. Se usa una isntaciación del objeto date para que no haya problemas a la hora de manejar el dato.
   const fecha1 = new Date(document.getElementById('fecha1').value);
+  console.log(fecha1);
   const fecha2 = new Date(document.getElementById('fecha2').value);
-
+  console.log(fecha2);
   // Calcular la diferencia en milisegundos entre las dos fechas
   const diferenciaMilisegundos = Math.abs(fecha2 - fecha1);
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
+    <title>PRUEBA TÉCNICA</title>
+</head>
+<body>
+    <header>
+        <h1>CÁLCULO DE IMC - RECOMENDACIONES</h1>
+        <h5>Calcular el IMC del usuario, pide nombre, peso y altura y saca el resultado con una imagen que se adapte al resultado del usuario. Se pueden agregar recomendaciones de dieta.</h5>
+    </header>
+
+    <section>
+        <form id="formImc">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" required>
+            <label for="weight" >Peso (En Kg)</label>
+            <input type="number" id="weight" step="0.01" required>
+            <label for="height">Altura (En metros)</label>
+            <input type="number" id="height" step="0.01" required>
+            <button type="submit" id="btn_calcular">Calcular</button>
+        </form>
+        <div class="resultados">
+            <label for="resultado">Resultado:</label>
+            <input type="text" id="resultado" readonly>
+            <img id="resultImage" src="./assets/default.jpg" alt="Resultado de IMC">
+        </div>
+    </section>
+
+    <section>
+        <div class="recomendaciones">
+            <h4 id="enfuncionPeso">Recomendaciones en función del peso.</h4>
+            <ul id="recomendacionesList">
+            </ul>
+        </div>
+    </section>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
