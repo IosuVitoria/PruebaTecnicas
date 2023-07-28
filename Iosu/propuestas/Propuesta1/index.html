@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./assets/star-wars-logo.png" type="image/x-icon">
+    <script src="./js/script.js"></script>
+    <title>TEST STAR WARS</title>
+</head>
+<body>
+    <header>
+        <h1>CUESTIONARIO JEDI</h1>
+        <h3>Los caminos jedi son difíciles. Elige sabiamente y decide quien vas a ser... La verdad en tu corazón está joven padawan. Decide en qué te convertiras: Jedi, Sith o Mandaloriano.</h3>
+    </header>
+   
+    <form id="quizForm" class="container">
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw1.jpg" alt="Pregunta 1" >
+                <p>Pregunta 1: ¿Cuál es tu color favorito?</p>
+                <label><input type="radio" name="q1" value="1"> Azul.</label>
+                <label><input type="radio" name="q1" value="2"> Verde.</label>
+                <label><input type="radio" name="q1" value="3"> Rojo.</label>
+            </div>
+        </div>
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw2.jpg" alt="Pregunta 2">
+                <p>Pregunta 2: ¿Qué valor consideras más importante?</p>
+                <label><input type="radio" name="q2" value="1"> Sabiduría.</label>
+                <label><input type="radio" name="q2" value="2"> Coraje.</label>
+                <label><input type="radio" name="q2" value="3"> Fuerza.</label>
+            </div>
+        </div>
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw3.jpg" alt="Pregunta 3">
+                <p>Pregunta 3: ¿Cuál es tu arma preferida?</p>
+                <label><input type="radio" name="q3" value="1"> Sable de luz.</label>
+                <label><input type="radio" name="q3" value="2"> Bláster.</label>
+                <label><input type="radio" name="q3" value="3"> Armas cuerpo a cuerpo.</label>
+            </div>   
+        </div>
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw4.jpg" alt="Pregunta 4">
+                <p>Pregunta 4: ¿Qué harías frente a una injusticia?</p>
+                <label><input type="radio" name="q4" value="1"> Buscar una solución pacífica.</label>
+                <label><input type="radio" name="q4" value="2"> Luchar sin descanso.</label>
+                <label><input type="radio" name="q4" value="3"> Vengarte de los culpables.</label>
+            </div>
+        </div>
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw5.jpg" alt="Pregunta 5">
+                <p>Pregunta 5: ¿Cómo te enfrentas a tus miedos?</p>
+                <label><input type="radio" name="q5" value="1"> Aceptándolos y superándolos.</label>
+                <label><input type="radio" name="q5" value="2"> Ignorándolos y avanzando.</label>
+                <label><input type="radio" name="q5" value="3"> Enfrentándolos directamente.</label>
+            </div>
+        </div>
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw6.jpg" alt="Pregunta 6">
+                <p>Pregunta 6: ¿Cuál es tu relación con la Fuerza?</p>
+                <label><input type="radio" name="q6" value="1"> La Fuerza me guía y la respeto.</label>
+                <label><input type="radio" name="q6" value="2"> La Fuerza es una herramienta poderosa.</label>
+                <label><input type="radio" name="q6" value="3"> La Fuerza es mi sierva y actúa según mis designios.</label>
+            </div>
+        </div>
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw7.jpg" alt="Pregunta 7">
+                <p>Pregunta 7: ¿Qué rol prefieres en una misión?</p>
+                <label><input type="radio" name="q7" value="1"> Consejero y mediador.</label>
+                <label><input type="radio" name="q7" value="2"> Líder y estratega.</label>
+                <label><input type="radio" name="q7" value="3"> Espía y guerrero solitario.</label>
+            </div>
+        </div>
+        <div class="question">
+            <div class="question-content">
+                <img src="./assets/sw8.jpg" alt="Pregunta 8">
+                <p>Pregunta 8: ¿Qué cualidad valoras más en un aliado?</p>
+                <label><input type="radio" name="q8" value="1"> Lealtad.</label>
+                <label><input type="radio" name="q8" value="2"> Valentía.</label>
+                <label><input type="radio" name="q8" value="3"> Inteligencia.</label>
+            </div>
+        </div>
+        <br>
+    </form> 
+    <div class="button__calcular">
+        <button type="button" onclick="calcularResultado()">Obtener resultado</button>
+    </div>
+    <div id="padawan">
+        <div id="result">EL PODER DE LA FUERZA HARÁ QUE EVOLUCIONES...</div>
+        <img src="./assets/padawan.jpg" alt="imagen de padawan" class="img__resultado" id="img__cambio">
+    </div>
+</body>
+</html>
