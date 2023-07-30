@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/index.js" defer></script>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <title>Prueba técnica 4</title>
+</head>
+<body>
+    <header>
+        <h1>ORDENAR UNA LISTA POR APELLIDOS</h1>
+        <h4>Objetivo: Introducir un listado de nombre con apellido y buscar la lógica para ordenarlos todos. Previamente se mostrarán los conceptos necesarios.</h4>
+    </header>
+    <article class="review">
+        <section class="review__sort">
+            <div class="teoría">
+                <h3>El método .sort()</h3>
+                <h5>Es un método incorporado en JavaScript que se utiliza para ordenar los elementos de un array. Por defecto, ordena los elementos en función de su representación en formato de cadena (orden lexicográfico), lo que significa que los números y las letras se ordenan alfabéticamente. Sin embargo, también se puede personalizar la función de comparación para ordenar los elementos de acuerdo con un criterio específico.</h5>
+                <br>
+                <h3>LocaleCompare()</h3>
+                <h5>Es un método en JavaScript que se utiliza para comparar dos cadenas de texto y determinar su orden lexicográfico (alfabético) según las reglas de ordenación del idioma y localización específicos. A continuación hipervínculo a la documentación: <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare">Documentación del método.</a></h5>
+            </div>
+
+        </section>
+    </article>
+    <section class="exercise">
+        <h1>Ordenar Nombres por Apellidos</h1>
+        <p>Ingresa un nombre y apellido por línea:</p>
+        <textarea id="inputArea" rows="6" cols="50"></textarea>
+        <button onclick="ordenarNombres()">Ordenar</button>
+        <h2>Nombres Ordenados:</h2>
+        <ul id="outputList"></ul>
+        <img src="./assets/neo.png" alt="imagen de neo" class="decorator">
+    </section>
+
+</body>
+</html>
