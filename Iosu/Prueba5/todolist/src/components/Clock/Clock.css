@@ -1,0 +1,21 @@
+.clock-container {
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+.clock-container h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+  
+.clock-container p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+  
