@@ -1,6 +1,6 @@
-import "./Home.css";
 import React, { useState } from "react";
 import Clock from "../Clock/Clock";
+import "./Home.css";
 
 function Home() {
   const [tasks, setTasks] = useState([]);
@@ -8,6 +8,7 @@ function Home() {
   const [priority, setPriority] = useState("low");
   const [contentFilter, setContentFilter] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("all");
+  const [editIndex, setEditIndex] = useState(-1);
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -22,10 +23,21 @@ function Home() {
     setTasks(newTasks);
   };
 
-  const handleEditTask = (index, updatedTask) => {
-    const newTasks = [...tasks];
-    newTasks[index] = updatedTask;
-    setTasks(newTasks);
+  const handleEditTask = (index, task) => {
+    setEditIndex(index);
+    setNewTask(task.content);
+    setPriority(task.priority);
+  };
+
+  const handleSaveEditedTask = (e, index) => {
+    e.preventDefault();
+    if (newTask.trim() !== "") {
+      const newTasks = [...tasks];
+      newTasks[index] = { content: newTask, priority };
+      setTasks(newTasks);
+      setEditIndex(-1);
+      setNewTask("");
+    }
   };
 
   const handlePriorityChange = (e) => {
@@ -53,7 +65,7 @@ function Home() {
   });
 
   return (
-    <div>
+    <div className="App">
       <Clock />
       <div className="filters">
         <label htmlFor="contentFilter">Filtrar por contenido:</label>
@@ -75,31 +87,54 @@ function Home() {
           <option value="high">Alta</option>
         </select>
       </div>
-      <form onSubmit={handleAddTask}>
-        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Nueva tarea"
-        />
-        <select value={priority} onChange={handlePriorityChange}>
-          <option value="low">Baja</option>
-          <option value="medium">Media</option>
-          <option value="high">Alta</option>
-        </select>
-        <button type="submit">Agregar</button>
+      <form className="form-container" onSubmit={handleAddTask}>
+        <div className="input-container">
+          <input
+            type="text"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            placeholder="Nueva tarea"
+          />
+          <select value={priority} onChange={handlePriorityChange}>
+            <option value="low">Baja</option>
+            <option value="medium">Media</option>
+            <option value="high">Alta</option>
+          </select>
+        </div>
+        <button className="button-action" type="submit">Agregar</button>
       </form>
-      <ul className="task-list">
+      <div className="task-list">
         {filteredTasks.map((task, index) => (
-          <li key={index} className={`task ${task.priority}`}>
+          <div key={index} className={`task ${task.priority}`}>
             <span className="task-number">{index + 1}.</span>
-            <span className="task-content">{task.content}</span>
-            <button onClick={() => handleDeleteTask(index)}>Eliminar</button>
-            <button onClick={() => handleEditTask(index, task)}>Editar</button>
-          </li>
+            {editIndex === index ? (
+              <form onSubmit={(e) => handleSaveEditedTask(e, index)}>
+                <input
+                  type="text"
+                  value={newTask}
+                  onChange={(e) => setNewTask(e.target.value)}
+                  placeholder="Editar tarea"
+                />
+                <select value={priority} onChange={handlePriorityChange}>
+                  <option value="low">Baja</option>
+                  <option value="medium">Media</option>
+                  <option value="high">Alta</option>
+                </select>
+                <button className="button-action" type="submit">Guardar</button>
+              </form>
+            ) : (
+              <>
+                <div className="task-content">{task.content}</div>
+                <div className="task-actions">
+                  <button className="button-action" onClick={() => handleDeleteTask(index)}>Eliminar</button>
+                  <button className="button-action" onClick={() => handleEditTask(index, task)}>Editar</button>
+                </div>
+              </>
+            )}
+          </div>
         ))}
-      </ul>
-      <button onClick={() => window.print()}>Imprimir Lista</button>
+      </div>
+      <button id="print-button" onClick={() => window.print()}>Imprimir Lista</button>
     </div>
   );
 }
