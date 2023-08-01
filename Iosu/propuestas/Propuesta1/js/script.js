@@ -8,6 +8,7 @@ function calcularResultado() {
     // Suma los puntos de las respuestas seleccionadas. Se suma la propiedad value que se encuentra parseada en la línea de código anterior.
     radios.forEach(radio => {
         puntos += parseInt(radio.value);
+        //puntos = puntos + parseInt(radio.value)
     });
 
     // Almaceno aquí los resultados posibles y las rutas para cambiar la imagen en función del resultado del usuario.
