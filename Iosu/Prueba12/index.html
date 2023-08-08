@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERRAMIENTAS BIOINFORMÁTICA</title>
+    <script src="script.js" defer></script>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h2 class="nav-logo">HERRAMIENTAS BIOINFORMÁTICA NIVEL 1</h2>
+            <ul class="nav-links">
+                <li><a href="#comparador">Comparador de SNP</a></li>
+                <li><a href="#traduccion">Traducción a Proteínas</a></li>
+                <li><a href="#codigo_genetico">Código Genético</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="comparador">
+        <h3>Comparador de SNP</h3>
+        <p>Un SNP (Polimorfismo de un solo nucleótido) es una forma común de variación genética que ocurre cuando una sola base en el ADN difiere entre individuos dentro de una población.</p>
+        <img src="./assets/SNP.png" alt="imagen de un SNP" class="img__explanation">
+        <p>Ingresa dos secuencias genéticas a continuación para identificar los SNP presentes y las posiciones donde difieren. LAS SECUENCIAS EN AMBOS CASOS DEBEN TENER LA MISMA LONGITUD:</p>
+
+        <label for="sequence1Input" class="secuence__label">Secuencia 1:</label>
+        <input type="text" id="sequence1Input" class="secuence__input" pattern="[ATCG]*" title="Solo se permiten las letras A, U (para T), C y G">
+        <br>
+        <label for="sequence2Input" class="secuence__label">Secuencia 2:</label>
+        <input type="text" id="sequence2Input" class="secuence__input" pattern="[ATCG]*" title="Solo se permiten las letras A, U (para T), C y G">
+        <br>
+        <button onclick="compareSequences()" class="btn__comparator">Comparar</button>
+        <br>
+        <h2>Resultados:</h2>
+        <table id="results">
+            <tr>
+                <th>Posición</th>
+                <th>Nucleótido en secuencia 1</th>
+                <th>Nucleótido en secuencia 2</th>
+            </tr>
+        </table>
+    </section>
+
+    <section id="codigo_genetico">
+        <h3>EL PASO PREVIO A LA TRADUCCIÓN - EL CÓDIGO GENÉTICO</h3>
+        <img src="./assets/genCode.jpg" alt="código genético" class="img__explanation">
+        <article>
+            <h4>El Descubrimiento del Código Genético: Un Logro en la Biología Molecular</h1>
+                <p>El descubrimiento del código genético es uno de los hitos más fundamentales en la historia de la biología y ha sido crucial para nuestra comprensión de cómo la información genética se almacena, transmite y traduce en la maquinaria molecular que guía la vida. Este logro científico revolucionó la biología molecular y nos supuso conocer la clave inicial para descifrar el idioma que codifica la vida.</p>
+                <p>El nacimiento del campo de la genética molecular se puede atribuir a la obra de varios científicos influyentes, incluidos Gregor Mendel, quien sentó las bases de la genética de la herencia en los años 1860 (no hay que olvidar el experimento con los guisantes de Mendel), y Oswald Avery, quien en 1944 demostró que el ADN era la molécula responsable de transmitir la información genética. Sin embargo, fueron James D. Watson y Francis Crick, en 1953, quienes dieron un salto de gigante al descubrir la estructura de la doble hélice del ADN.</p>
+                <p>La verdadera comprensión del código genético y su traducción en proteínas comenzaría en la década de 1960. Marshall Nirenberg, junto con su colega Heinrich Matthaei, llevaron a cabo experimentos que descifraron cómo los segmentos de ARN mensajero (ARNm) dictaban la secuencia de aminoácidos en las proteínas. A través de diversos ensayos utilizando ribosomas y ARNm sintético, Nirenberg y su equipo asignaron codones específicos (secuencias de tres bases) a aminoácidos particulares. EL CÓDIGO HABÍA SIDO DESCRIFRADO.</p>
+                <p>Pero, ¿qué tiene de especial el código genético? Es el responsable de que una secuencia de nucleótidos en el ADN pueda traducirse en proteínas funcionales. Es entonces, ESENCIAL para todos los procesos biológicos.  Su comprensión ha permitido avances en campos como la medicina, la biotecnología y la ingeniería genética.</p>
+        </article>
+    </section>
+
+    <section id="traduccion">
+        <h3>Traducción a Proteínas</h3>
+        <p>La traducción del código genético en proteínas es un proceso esencial en la biología molecular. Ingrese una secuencia de ARN mensajero (ARNm) a continuación para realizar la traducción:</p>
+        <label for="rnaInput" class="secuence__label">Secuencia de ARNm:</label>
+        <input type="text" id="rnaInput" class="secuence__input" pattern="[AUCG]*" title="Solo se permiten las letras A, U (para T), C y G">
+        <br>
+        <button onclick="translateToProteins()" class="btn__comparator">Traducir</button>
+        <br>
+        <h2>Polipéptido resultante:</h2>
+        <div id="proteinResults"></div>
+    </section>
+ 
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>Diseñado por Iosu Gómez.</p>
+                <p>Biólogo molecular y Junior Fullstack Developer.</p>
+                <p>Explorando más sobre biología y bioinformática.</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/iosu-gomez-biologo-analista/" target="_blank">
+                    Linkedin <img src="./assets/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/IosuVitoria" target="_blank">
+                   Github  <img src="./assets/github.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
