@@ -27,7 +27,7 @@
     <section class="container" id="teoria">
         <h1>Simulador de Lanzamiento de Dados</h1>
         <p>El origen de la teoría de la probabilidad está estrechamente relacionado a los juegos de azar. Los fundamentos de la teoría de la probabilidad moderna se remontan a la correspondencia de Blaise Pascal y Pierre de Fermat. Ambos intentaban comprender las probabilidades asociadas con las tiradas de dados. </p>
-        <p>Para calcular la probabilidad de algo tenemos primero que determinar el evento en cuestión. Es decir, conocer qué puede suceder para poder caracterizarlo. En este caso, tenemos un dado de seis caras y en cada una de ellas tenemos un número concreto.  <b>El objetivo de este experimento sería primero simular las tiradas, después anotar resultados y por último comprobar que la probabilidad de que salga cualquier número salga sea la misma: 1/6. </b></p>
+        <p>Para calcular la probabilidad de algo tenemos primero que determinar el evento en cuestión. Es decir, conocer qué puede suceder para poder caracterizarlo. En este caso, tenemos un dado de seis caras y en cada una de ellas tenemos un número concreto.  <b>El objetivo de este experimento sería primero simular las tiradas, después anotar resultados y por último comprobar como diferen los resultados obtenidos de la probabilidad teórica de 1/6 (16,67%). </b></p>
         <figure>
             <img src="./assets/dados.jpg" alt="imagen de dados" style="width: 97%; border-radius: 30px;">
             <figcaption>Dados de casino. </figcaption>
@@ -45,11 +45,11 @@
                 <li><strong>Paso 1:</strong> Llamar a la libreria Chart.JS en nuestro código. A fecha 13/08/2023 el enlace es el siguiente: <code> "https://cdn.jsdelivr.net/npm/chart.js" </code>. Debe ir situado dentro de una etiqueta script y se puede ubicar al final del html.</li>
                 <li><strong>Paso 2:</strong> En el HTML se designa el espacio donde va a ir ubicado el gráfico. Bajo este texto se ven las líneas de código que hacen referencia al gráfico que se va a generar.</li>
                 <img src="./assets/imagen1.png" alt="imagen de la ubicación del gráfico en el código html" style="margin-top: 10px; margin-bottom: 10px; border-radius: 20px;">
-                <li><strong>Paso 3:</strong> En nuestro script generamos la lógica detrás de la simulación. Se genera con el objeto math de manera aleatoria los números que en teoría se obtendrían con el dado.</li>
+                <li><strong>Paso 3:</strong> En nuestro script generamos la lógica detrás de la simulación. Se genera con el objeto math de manera aleatoria los números que en teoría se obtendrían con el dado. Se guardan en una variable específica y después esos datos serán los mostrados.</li>
                 <img src="./assets/imagen4.png" alt="imagen del código de la lógica de la simulación." style="margin-top: 10px; margin-bottom: 10px; border-radius: 20px; width: 98%;">
                 <li><strong>Paso 4:</strong> A la hora de empezar con el código del gráfico, se generan primero los colores con los que se pintará el gráfico cuando se cree de manera dinámica.</li>
                 <img src="./assets/imagen2.png" alt="imagen de código" style="margin-top: 10px; margin-bottom: 10px; border-radius: 20px;">
-                <li><strong>Paso 5:</strong> Repasamos la lógica detrás de la simulación del lanzamiento del dado. Revisar código en Github para ver todo el detalle.</li>
+                <li><strong>Paso 5 - "Repaso de la lógica":</strong> Repaso de la lógica detrás de la simulación del lanzamiento del dado. Revisar código en Github para ver todo el detalle.</li>
                 <li><strong>Paso 6:</strong> Generar el gráfico de manera dinámica aprovechando los resultados de la simulación. </li>
                 <img src="./assets/imagen5.png" alt="imagen de código detrás de la generación del gráfico por parte de Chart.JS" style="margin-top: 10px; margin-bottom: 10px; border-radius: 20px;">
             </ol>
