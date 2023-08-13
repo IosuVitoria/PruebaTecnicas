@@ -1,0 +1,55 @@
+¡Por supuesto! Aquí tienes más ejemplos que incluyen nombres y edades, junto con explicaciones detalladas:
+
+**Ejemplos de `filter` con nombres y edades**:
+
+Supongamos que tenemos una lista de personas con sus nombres y edades, y queremos filtrar las personas que tienen 18 años o más:
+
+```javascript
+const personas = [
+  { nombre: "Ana", edad: 25 },
+  { nombre: "Carlos", edad: 16 },
+  { nombre: "María", edad: 20 },
+  { nombre: "Juan", edad: 14 },
+  { nombre: "Sofía", edad: 22 }
+];
+
+const personasMayoresDeEdad = personas.filter(persona => persona.edad >= 18);
+console.log(personasMayoresDeEdad);
+```
+
+Explicación: En este ejemplo, tenemos una lista de objetos `persona` que tienen propiedades `nombre` y `edad`. Usamos la función `filter` para seleccionar solo aquellas personas cuya propiedad `edad` sea mayor o igual a 18. El resultado será un nuevo array con las personas mayores de edad.
+
+**Ejemplos de `includes` con nombres**:
+
+Imagina que tienes una lista de nombres de amigos y quieres verificar si "María" está en la lista:
+
+```javascript
+const amigos = ["Juan", "Ana", "Carlos", "Sofía", "María"];
+const nombreBuscado = "María";
+const estaEnLaLista = amigos.includes(nombreBuscado);
+console.log(estaEnLaLista);
+```
+
+Explicación: Aquí creamos un array de `amigos` y luego usamos la función `includes` para comprobar si el nombre "María" está en la lista. El resultado será `true` si María está en la lista y `false` si no lo está.
+
+**Ejemplo combinando `filter` e `includes` con nombres y edades**:
+
+Supongamos que tenemos una lista similar de personas con nombres y edades, y queremos filtrar las personas que tienen más de 20 años y luego verificar si "Carlos" está en esa lista:
+
+```javascript
+const personas = [
+  { nombre: "Ana", edad: 25 },
+  { nombre: "Carlos", edad: 22 },
+  { nombre: "María", edad: 20 },
+  { nombre: "Juan", edad: 19 },
+  { nombre: "Sofía", edad: 21 }
+];
+
+const personasMayoresDe20 = personas.filter(persona => persona.edad > 20);
+const estaCarlosEnLista = personasMayoresDe20.some(persona => persona.nombre === "Carlos");
+
+console.log(personasMayoresDe20);
+console.log(estaCarlosEnLista);
+```
+
+Explicación: Primero, usamos `filter` para obtener una lista de personas mayores de 20 años. Luego, usamos la función `some` para verificar si "Carlos" está en la lista de personas mayores de 20 años. El resultado será un array con las personas mayores de 20 años y un valor `true` si "Carlos" está en esa lista.
