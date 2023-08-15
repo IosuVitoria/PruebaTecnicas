@@ -1,0 +1,1 @@
+Crea una función que invierta texto sin usar las funciones nativas del lenguaje.

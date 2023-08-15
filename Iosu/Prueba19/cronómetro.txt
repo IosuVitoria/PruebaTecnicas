@@ -1,0 +1,80 @@
+Apuntes cronómetro.
+
+1. Seleccionar elementos del DOM:**
+
+   En primer lugar, se utilizan las funciones `document.querySelector()` para seleccionar los elementos del DOM con los que se va a interactuar. Estos elementos son los que muestran las horas, minutos, segundos y milisegundos del cronómetro, así como los botones de control.
+
+   const hourElement = document.querySelector('.hour');
+   const minuteElement = document.querySelector('.minute');
+   const secondElement = document.querySelector('.second');
+   const millisecondElement = document.querySelector('.millisecond');
+   const startButton = document.querySelector('.start');
+   const stopButton = document.querySelector('.stop');
+   const resetButton = document.querySelector('.reset');
+
+
+2. Creación de las variables necesarias de contro. 
+
+   Se definen algunas variables de control que se utilizarán para rastrear el estado del cronómetro y los intervalos de tiempo:
+   let intervalId;
+   let startTime;
+   let elapsedTime = 0;
+   let running = false;
+
+
+3. Se da formato a al tiempo tal y como se va a mostrar.
+
+   La función `formatTime`  toma un valor numérico (horas, minutos, segundos, milisegundos) y devuelve una cadena con dos dígitos. Esto asegura que los números se muestren en formato de dos dígitos (por ejemplo, "03" en lugar de "3").
+
+   function formatTime(time) {
+     return time < 10 ? `0${time}` : time;
+   }
+  
+
+4. Actualizando el cronómetro.
+
+   La función `updateTimer` calcula el tiempo transcurrido desde que se inició el cronómetro y actualiza los elementos del DOM con las horas, minutos, segundos y milisegundos correspondientes. Esto se hace dividiendo el tiempo transcurrido en sus componentes y luego actualizando los elementos con los valores formateados.
+
+   function updateTimer() {
+     const currentTime = Date.now();
+     elapsedTime = currentTime - startTime;
+
+     const hours = Math.floor(elapsedTime / 3600000);
+     const minutes = Math.floor((elapsedTime % 3600000) / 60000);
+     const seconds = Math.floor((elapsedTime % 60000) / 1000);
+     const milliseconds = elapsedTime % 1000;
+
+     hourElement.textContent = formatTime(hours);
+     minuteElement.textContent = formatTime(minutes);
+     secondElement.textContent = formatTime(seconds);
+     millisecondElement.textContent = formatTime(milliseconds);
+   }
+
+5. Por último agregamos la lógica asociada a los botones. 
+
+   Se agregan tres manejadores de eventos a los botones "Start", "Stop" y "Reset". Cuando se hace clic en el botón "Start", se calcula el tiempo de inicio y se inicia un intervalo que llama a la función `updateTimer` cada 10 milisegundos. Esto actualiza el cronómetro en tiempo real. Al hacer clic en el botón "Stop", se detiene el intervalo. Al hacer clic en el botón "Reset", se reinicia el cronómetro a cero.
+
+   startButton.addEventListener('click', () => {
+     if (!running) {
+       startTime = Date.now() - elapsedTime;
+       intervalId = setInterval(updateTimer, 10);
+       running = true;
+     }
+   });
+
+   stopButton.addEventListener('click', () => {
+     if (running) {
+       clearInterval(intervalId);
+       running = false;
+     }
+   });
+
+   resetButton.addEventListener('click', () => {
+     if (running) {
+       clearInterval(intervalId);
+       running = false;
+     }
+
+     elapsedTime = 0;
+     updateTimer();
+   });

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Strings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: linear-gradient(to bottom, #2980b9, #3498db);
+        }
+
+        .resultado {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .resultado strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Manejo de Strings</h1>
+        
+        <!-- Contar Caracteres -->
+        <label for="inputContarCaracteres">Contar Caracteres:</label>
+        <input type="text" id="inputContarCaracteres">
+        <button id="calcularContarCaracteres">Ejecutar</button>
+        <p id="resultadoContarCaracteres" class="resultado"></p>
+        
+        <!-- Convertir a Mayúsculas -->
+        <label for="inputConvertirMayusculas">Convertir a Mayúsculas:</label>
+        <input type="text" id="inputConvertirMayusculas">
+        <button id="calcularConvertirMayusculas">Ejecutar</button>
+        <p id="resultadoConvertirMayusculas" class="resultado"></p>
+        
+        <!-- Convertir a Minúsculas -->
+        <label for="inputConvertirMinusculas">Convertir a Minúsculas:</label>
+        <input type="text" id="inputConvertirMinusculas">
+        <button id="calcularConvertirMinusculas">Ejecutar</button>
+        <p id="resultadoConvertirMinusculas" class="resultado"></p>
+        
+        <!-- Espacio entre funciones -->
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ccc;">
+        
+        <!-- Recortar Texto -->
+        <label for="inputRecortarTexto">Recortar Texto:</label>
+        <input type="text" id="inputRecortarTexto">
+        <input type="number" id="inputLongitudRecortarTexto" placeholder="Longitud">
+        <button id="calcularRecortarTexto">Ejecutar</button>
+        <p id="resultadoRecortarTexto" class="resultado"></p>
+        
+        <!-- Encontrar Subcadena -->
+        <label for="inputEncontrarSubcadena">Encontrar Subcadena:</label>
+        <input type="text" id="inputEncontrarSubcadena">
+        <input type="text" id="inputSubcadenaEncontrarSubcadena" placeholder="Subcadena">
+        <button id="calcularEncontrarSubcadena">Ejecutar</button>
+        <p id="resultadoEncontrarSubcadena" class="resultado"></p>
+        
+        <!-- Reemplazar Subcadena -->
+        <label for="inputReemplazarSubcadena">Reemplazar Subcadena:</label>
+        <input type="text" id="inputReemplazarSubcadena">
+        <input type="text" id="inputSubcadenaReemplazarSubcadena" placeholder="Subcadena">
+        <input type="text" id="inputNuevaSubcadenaReemplazarSubcadena" placeholder="Nueva Subcadena">
+        <button id="calcularReemplazarSubcadena">Ejecutar</button>
+        <p id="resultadoReemplazarSubcadena" class="resultado"></p>
+        
+        <!-- Espacio entre funciones -->
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ccc;">
+        
+        <!-- Dividir String -->
+        <label for="inputDividirString">Dividir String:</label>
+        <input type="text" id="inputDividirString">
+        <input type="text" id="inputSeparadorDividirString" placeholder="Separador">
+        <button id="calcularDividirString">Ejecutar</button>
+        <p id="resultadoDividirString" class="resultado"></p>
+        
+        <!-- Eliminar Espacios -->
+        <label for="inputEliminarEspacios">Eliminar Espacios:</label>
+        <input type="text" id="inputEliminarEspacios">
+        <button id="calcularEliminarEspacios">Ejecutar</button>
+        <p id="resultadoEliminarEspacios" class="resultado"></p>
+        
+        <!-- Espacio entre funciones -->
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ccc;">
+        
+        <!-- Extraer Parte -->
+        <label for="inputExtraerParte">Extraer Parte:</label>
+        <input type="text" id="inputExtraerParte">
+        <input type="number" id="inputInicioExtraerParte" placeholder="Inicio">
+        <input type="number" id="inputLongitudExtraerParte" placeholder="Longitud">
+        <button id="calcularExtraerParte">Ejecutar</button>
+        <p id="resultadoExtraerParte" class="resultado"></p>
+    </div>
+
+    <script>
+        const mostrarResultado = (elementId, resultado) => {
+            document.getElementById(elementId).textContent = resultado;
+        };
+
+        document.getElementById('calcularContarCaracteres').addEventListener('click', () => {
+            const inputContarCaracteres = document.getElementById('inputContarCaracteres').value;
+            const resultado = inputContarCaracteres.length;
+            mostrarResultado('resultadoContarCaracteres', `Longitud: ${resultado}`);
+        });
+
+        document.getElementById('calcularConvertirMayusculas').addEventListener('click', () => {
+            const inputConvertirMayusculas = document.getElementById('inputConvertirMayusculas').value;
+            const resultado = inputConvertirMayusculas.toUpperCase();
+            mostrarResultado('resultadoConvertirMayusculas', `Mayúsculas: ${resultado}`);
+        });
+
+        document.getElementById('calcularConvertirMinusculas').addEventListener('click', () => {
+            const inputConvertirMinusculas = document.getElementById('inputConvertirMinusculas').value;
+            const resultado = inputConvertirMinusculas.toLowerCase();
+            mostrarResultado('resultadoConvertirMinusculas', `Minúsculas: ${resultado}`);
+        });
+
+        document.getElementById('calcularRecortarTexto').addEventListener('click', () => {
+            const inputRecortarTexto = document.getElementById('inputRecortarTexto').value;
+            const inputLongitudRecortarTexto = document.getElementById('inputLongitudRecortarTexto').value;
+            const resultado = inputRecortarTexto.slice(0, inputLongitudRecortarTexto);
+            mostrarResultado('resultadoRecortarTexto', `Recortado: ${resultado}`);
+        });
+
+        document.getElementById('calcularEncontrarSubcadena').addEventListener('click', () => {
+            const inputEncontrarSubcadena = document.getElementById('inputEncontrarSubcadena').value;
+            const inputSubcadenaEncontrarSubcadena = document.getElementById('inputSubcadenaEncontrarSubcadena').value;
+            const resultado = inputEncontrarSubcadena.includes(inputSubcadenaEncontrarSubcadena);
+            mostrarResultado('resultadoEncontrarSubcadena', `Contiene Subcadena: ${resultado}`);
+        });
+
+        document.getElementById('calcularReemplazarSubcadena').addEventListener('click', () => {
+            const inputReemplazarSubcadena = document.getElementById('inputReemplazarSubcadena').value;
+            const inputSubcadenaReemplazarSubcadena = document.getElementById('inputSubcadenaReemplazarSubcadena').value;
+            const inputNuevaSubcadenaReemplazarSubcadena = document.getElementById('inputNuevaSubcadenaReemplazarSubcadena').value;
+            const resultado = inputReemplazarSubcadena.replace(inputSubcadenaReemplazarSubcadena, inputNuevaSubcadenaReemplazarSubcadena);
+            mostrarResultado('resultadoReemplazarSubcadena', `Reemplazado: ${resultado}`);
+        });
+
+        document.getElementById('calcularDividirString').addEventListener('click', () => {
+            const inputDividirString = document.getElementById('inputDividirString').value;
+            const inputSeparadorDividirString = document.getElementById('inputSeparadorDividirString').value;
+            const resultado = inputDividirString.split(inputSeparadorDividirString);
+            mostrarResultado('resultadoDividirString', `Dividido: ${resultado}`);
+        });
+
+        document.getElementById('calcularEliminarEspacios').addEventListener('click', () => {
+            const inputEliminarEspacios = document.getElementById('inputEliminarEspacios').value;
+            const resultado = inputEliminarEspacios.trim();
+            mostrarResultado('resultadoEliminarEspacios', `Sin Espacios: ${resultado}`);
+        });
+
+        document.getElementById('calcularExtraerParte').addEventListener('click', () => {
+            const inputExtraerParte = document.getElementById('inputExtraerParte').value;
+            const inputInicioExtraerParte = document.getElementById('inputInicioExtraerParte').value;
+            const inputLongitudExtraerParte = document.getElementById('inputLongitudExtraerParte').value;
+            const resultado = inputExtraerParte.substr(inputInicioExtraerParte, inputLongitudExtraerParte);
+            mostrarResultado('resultadoExtraerParte', `Parte Extraída: ${resultado}`);
+        });
+    </script>
+</body>
+</html>
